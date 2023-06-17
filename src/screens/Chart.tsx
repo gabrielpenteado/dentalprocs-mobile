@@ -47,7 +47,12 @@ export function Chart() {
 
       const totalProcsArray = response.data.map((proc: proceduresTotal) => proc.total)
       // console.log(totalProcsArray);
-      setProcsTotal(totalProcsArray);
+
+      // Convert array of strings to array of numbers
+      const totalProcsNumbersArray = totalProcsArray.map((proc: string) => parseInt(proc))
+      // console.log(totalProcsNumbersArray);
+
+      setProcsTotal(totalProcsNumbersArray);
 
     } catch (error) {
       console.log(error);
@@ -73,7 +78,7 @@ export function Chart() {
   const totalOfProcedures = procsTotal.reduce((accumulator: number, currentValue: number) => {
     return accumulator + currentValue;
   });
-  // console.log(totalOfProcedures);
+  console.log(totalOfProcedures);
 
   // Calculate percentage of each procedure
   const percentageProcs = procsTotal.map((proc: number) => (proc / totalOfProcedures * 100).toFixed(0) + '%')
