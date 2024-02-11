@@ -14,9 +14,11 @@ import { Header } from "../components/Header";
 import { Loading } from "../components/Loading";
 import { ProcedureDay, DaySize } from "../components/ProcedureDay";
 
-const weekDays = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+const weekDays = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+// const weekDays = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 const datesFromYearStart = generateDatesFromYearBeginning();
-const minimumSummaryDatesSizes = 52 * 7; // days to show on screen 18 * 7 or 21 * 7 or 24 * 7
+const minimumSummaryDatesSizes = 366; // 52 * 7 // days to show on screen 18 * 7 or 21 * 7 or 24 * 7
+// use 365 or 366 - total days of the current year
 const amountOfDaysToFill = minimumSummaryDatesSizes - datesFromYearStart.length;
 
 type SummaryProps = {
